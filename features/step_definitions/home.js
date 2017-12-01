@@ -11,6 +11,11 @@ const homepage = function () {
         assert.ok(homePage.hasLogo())
     });
 
+    this.When(/^I search for a random product$/, () => {
+        homePage.searchForProduct()
+    });
+
+
 };
 
 module.exports = homepage;

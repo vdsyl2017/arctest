@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Monty E2E exercise",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "fibers": "^2.0.0"
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.24.0",
@@ -15,7 +17,7 @@
     "wdio-cucumber-reporter": "0.0.2",
     "wdio-dot-reporter": "0.0.6",
     "wdio-selenium-standalone-service": "0.0.8",
-    "webdriverio": "4.6.2"
+    "webdriverio": "^4.9.11"
   },
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js"

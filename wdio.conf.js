@@ -58,7 +58,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 1,
         //
-        browserName: 'chrome'
+        //browserName: 'chrome'
+	browserName: 'firefox'
     }],
     //
     // ===================
@@ -82,7 +83,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: 'https://m.topshop.com',
+    baseUrl: 'https://www.topshop.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -117,8 +118,8 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['selenium-standalone'],
-    seleniumInstallArgs: { drivers: { chrome: { version: '2.26' } } },
-    seleniumArgs: { drivers: { chrome: { version: '2.26' } } },
+  /*  seleniumInstallArgs: { drivers: { chrome: { version: '2.26' } } },
+    seleniumArgs: { drivers: { chrome: { version: '2.26' } } },*/
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
