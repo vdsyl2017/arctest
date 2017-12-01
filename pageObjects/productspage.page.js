@@ -1,5 +1,4 @@
-const resultsText = 'results'
-const countClass = 'count'
+
 const pImage = '.product_image'
 const product = '.product' 
 const productInfo = '#productInfo'
@@ -7,9 +6,9 @@ var quantityBox = $('#product_quantity_full');
 const addToCart = '#btn_add_2_shop_cart'
 const productSizeButtons = '.product_size_buttons' 
 const sizebutton = '#size_button_30347836' 
-//var quantityBox = '#product_quantity_full';
 const addToBagResponse = '.add_to_bag_response' 
-var addToBagItemString = 'none'  
+const sizeSelect = "[for='size_button_30347836']"
+
 
 const pImageMVersion = '.ProductList'
 const productLinkMVersion = '.Product-link'
@@ -18,7 +17,10 @@ var quantityBoxMVersion = $('#productQuantity');
 const addToCartMVersion = '.AddToBag'
 const addToBagResponseMVersion = '.is-shown'
 const addToBagConfirmMVersion = '.AddToBagConfirm-viewBag'
-const productInfoMVersion = '.Carousel--productDetail'  
+const productInfoMVersion = '.Carousel--productDetail' 
+const sizeSelectMVersion = "[aria-label='Select size W2834']"
+const removeOptionMVerson = '.OrderProducts-deleteText'
+const confirmDelete = '.OrderProducts-deleteButton'
 
 
 
@@ -52,22 +54,17 @@ export const isProductDetailPage = () => browser.isVisible(productInfo);
 
 export const isProductDetailPageMVersion = () => browser.isVisible(productInfoMVersion);
 
-export const getQuantity = () => {
+export const quantity = () => {
 
     quantityBox.selectByAttribute('value', '1');
-
-    var value = quantityBox.getValue();
-    console.log(value); 
 
 } 
 
 
-export const getQuantityMVersion = () => {
+export const quantityMVersion = () => {
 
-    quantityBoxMVersion.selectByAttribute('value', '3');
-
-    var value = quantityBoxMVersion.getValue();
-    console.log(value); 
+    //quantityBoxMVersion.selectByAttribute('value', '3');
+quantityBoxMVersion.selectByValue('3');
 
 }
 
@@ -83,41 +80,43 @@ export const addProductToBasket = () => {
 export const addProductToBasketMVersion = () => {
 
 	selectSizeMVersion();
+	quantityMVersion();
 	browser.click(addToCartMVersion);
-	//browser.waitForExist(addToBagResponse, 10000);
 
 } 
 
 export const confirmAddToBagMVersion = () => {
 
-	//selectSizeMVersion();
 	browser.click(addToBagConfirmMVersion);
-	//browser.waitForExist(addToBagResponse, 10000);
-
 
 }
 
 export const cartVisibleMVersion = () => browser.isVisible(addToBagResponseMVersion)
 
 export const selectSize = () => {
-if(browser.isVisible(productSizeButtons))
-{
+	if(browser.isVisible(productSizeButtons))
+	{
 
-	//browser.click(sizebutton);
-browser.click("[for='size_button_30347836']");
-var item = browser.elementActive();
-console.log(item);
+		browser.click(sizeSelect);
+
+	} 
 } 
-} 
+
+export const quantityVisible = () => browser.isVisible(".OrderProducts-label")
 
 
 export const selectSizeMVersion = () => {
-if(browser.isVisible(productSizeButtonsMVersion))
-{
 
-	//browser.click(sizebutton);
-browser.click("[aria-label='Select size W2834']");
-var item = browser.elementActive();
-console.log(item);
+browser.click(".Select-container");
+browser.click("[value='W2532']");
+
+
 } 
-} 
+
+export const removeProductMVersion = () => {
+
+browser.click("[class='OrderProducts-deleteText']");
+browser.click(confirmDelete);
+
+
+}

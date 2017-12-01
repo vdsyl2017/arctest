@@ -1,27 +1,13 @@
 const brandLogo = '.BrandLogo-img'
-/*const mSearchButton = '/html/body/div/div/div[2]/div[2]/div/div[1]/button[2]'*/
 
-//const mSearchButton = '.SearchBar-button'
 const searchButton = '#btn_search_go' 
 const mSearchButton = '.Header-searchButton'
 const searchTermInput = '#searchTermInput' 
 const confirmSearchButton = ".SearchBar-button"
 const searchTextBox = "#inp_search_text"  
 
-/*var pageUrl = browser.getUrl();
-console.log(pageUrl);
 
-var pageTitle = browser.getTitle();
-console.log(pageTitle);
-//pageUrl.includes("m.top")*/
-
-var pageUrl; /*= browser.getUrl();
-console.log(pageUrl);
-
-var pageTitle = browser.getTitle();
-console.log(pageTitle);*/
-
-var version;
+export var version;
 
 export const setTimeOutValues = () => {
 
@@ -35,10 +21,8 @@ export const setTimeOutValues = () => {
 export const goToPage = () => {
     browser.url('/')
 
-pageUrl = browser.getUrl();
-console.log(pageUrl);
 
-if(pageUrl.includes("m.top"))
+if(browser.getUrl().includes("m.top"))
 {
 
 version =  "mobile";
@@ -74,7 +58,6 @@ if(version === "other")
 
 if(version === "mobile")
 	{
-//console.log(browser.getText('=Clothing'));
 	browser.click(mSearchButton);
 	browser.setValue(searchTermInput, "jeans");
 	browser.click(confirmSearchButton);
